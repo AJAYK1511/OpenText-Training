@@ -1,0 +1,26 @@
+//Functions
+
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+console.log(greet("Alice"));
+
+
+//Arrays
+
+let fruits = ["Apple", "Banana", "Cherry"];
+fruits.push("Date");
+console.log(fruits);
+
+//Objects
+
+let person = {
+    name: "John",
+    age: 30,
+    greet: function() {
+        console.log(`Hello, my name is ${this.name}`);
+    }
+};
+
+person.greet();

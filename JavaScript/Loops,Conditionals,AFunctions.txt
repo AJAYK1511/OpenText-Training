@@ -1,0 +1,22 @@
+// Loops
+
+for (let i = 0; i < 5; i++) {
+    console.log(`Iteration ${i}`);
+}
+
+
+//Conditionals
+
+let number = 10;
+
+if (number > 5) {
+    console.log("Number is greater than 5");
+} else {
+    console.log("Number is 5 or less");
+}
+
+
+// Arrow Functions
+
+const add = (a, b) => a + b;
+console.log(add(2, 3));
