@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Examples</title>
+</head>
+<body>
+    <h1>JavaScript Examples</h1>
+    <button id="myButton">Click Me</button>
+    <div id="output"></div>
+
+    <script>
+
+        function greet(name) {
+            return `Hello, ${name}!`;
+        }
+
+
+        let fruits = ["Apple", "Banana", "Cherry"];
+        fruits.push("Date");
+
+       
+        let person = {
+            name: "John",
+            age: 30,
+            greet: function() {
+                return `Hello, my name is ${this.name}`;
+            }
+        };
+        let loopOutput = '';
+        for (let i = 0; i < 5; i++) {
+            loopOutput += `Iteration ${i}<br>`;
+        }
+
+        let number = 10;
+        let conditionalOutput = number > 5 ? "Number is greater than 5" : "Number is 5 or less";
+
+        
+        const add = (a, b) => a + b;
+
+       
+        let promise = new Promise((resolve, reject) => {
+            let success = true;
+            success ? resolve("Promise resolved!") : reject("Promise rejected!");
+        });
+
+        async function fetchData() {
+            let response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+            let data = await response.json();
+            return data;
+        }
+
+
+        class Animal {
+            constructor(name) {
+                this.name = name;
+            }
+
+            speak() {
+                return `${this.name} makes a noise.`;
+            }
+        }
+
+        class Dog extends Animal {
+            speak() {
+                return `${this.name} barks.`;
+            }
+        }
+
+        document.getElementById("myButton").addEventListener("click", async function() {
+            let output = document.getElementById("output");
+            let dog = new Dog('Rex');
+            let data = await fetchData();
+
+            output.innerHTML = `
+                ${greet("Alice")}<br>
+                Fruits: ${fruits.join(", ")}<br>
+                ${person.greet()}<br>
+                ${loopOutput}
+                ${conditionalOutput}<br>
+                Sum: ${add(2, 3)}<br>
+                ${await promise}<br>
+                Fetched Data: ${JSON.stringify(data)}<br>
+                ${dog.speak()} `;
+        });
+    </script>
+</body>
+</html>
